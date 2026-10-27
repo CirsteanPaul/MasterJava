@@ -1,0 +1,41 @@
+// How long a book may be kept. Base period by membership, then capped by book type.
+package lab3.library.rules;
+
+import lab3.library.policy.rules.BorrowingFacts;
+import lab3.library.domain.MembershipType;
+import lab3.library.domain.BookType;
+
+rule "Period: students keep books 14 days"
+when
+    $f : BorrowingFacts(loanDays == null, membershipType == MembershipType.STUDENT)
+then
+    modify($f) { setLoanDays(14) }
+end
+
+rule "Period: regular members keep books 21 days"
+when
+    $f : BorrowingFacts(loanDays == null, membershipType == MembershipType.REGULAR)
+then
+    modify($f) { setLoanDays(21) }
+end
+
+rule "Period: premium members keep books 30 days"
+when
+    $f : BorrowingFacts(loanDays == null, membershipType == MembershipType.PREMIUM)
+then
+    modify($f) { setLoanDays(30) }
+end
+
+rule "Period: new releases at most 7 days"
+when
+    $f : BorrowingFacts(bookType == BookType.NEW_RELEASE, loanDays != null, loanDays > 7)
+then
+    modify($f) { setLoanDays(7) }
+end
+
+rule "Period: rare books at most 10 days"
+when
+    $f : BorrowingFacts(bookType == BookType.RARE, loanDays != null, loanDays > 10)
+then
+    modify($f) { setLoanDays(10) }
+end

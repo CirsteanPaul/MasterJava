@@ -1,0 +1,41 @@
+// Whether a member is allowed to borrow a given book.
+package lab3.library.rules;
+
+import lab3.library.policy.rules.BorrowingFacts;
+import lab3.library.domain.MembershipType;
+import lab3.library.domain.BookType;
+
+rule "Eligibility: the book must be available"
+when
+    $f : BorrowingFacts(bookAvailable == false)
+then
+    $f.deny("'" + $f.getBookTitle() + "' is not available");
+end
+
+rule "Eligibility: the borrowing limit must not be exceeded"
+when
+    $f : BorrowingFacts(maxBooks != null, currentlyBorrowed >= maxBooks)
+then
+    $f.deny("limit of " + $f.getMaxBooks() + " books reached for " + $f.getMembershipType() + " members");
+end
+
+rule "Eligibility: reference books never leave the library"
+when
+    $f : BorrowingFacts(bookType == BookType.REFERENCE)
+then
+    $f.deny("reference books can only be read in the library");
+end
+
+rule "Eligibility: rare books are reserved for premium members"
+when
+    $f : BorrowingFacts(bookType == BookType.RARE, membershipType != MembershipType.PREMIUM)
+then
+    $f.deny("rare books can only be borrowed by premium members");
+end
+
+rule "Eligibility: students may take a new release only while holding fewer than 2 books"
+when
+    $f : BorrowingFacts(bookType == BookType.NEW_RELEASE, membershipType == MembershipType.STUDENT, currentlyBorrowed >= 2)
+then
+    $f.deny("students holding 2 or more books cannot borrow new releases");
+end

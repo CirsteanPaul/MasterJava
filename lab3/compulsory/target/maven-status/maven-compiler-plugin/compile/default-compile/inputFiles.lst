@@ -1,0 +1,11 @@
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/AppConfig.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/AuditTrail.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/DataSourceService.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/DiDemoApplication.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/EmailNotifier.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/FormatterService.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/InjectionLog.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/Notifier.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/ReportGenerator.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/ReportScheduler.java
+/Users/paulcir/faculty/java/lab4-vros-main/lab3/compulsory/src/main/java/lab3/di/SmsNotifier.java

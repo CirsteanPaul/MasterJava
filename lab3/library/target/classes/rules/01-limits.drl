@@ -1,0 +1,26 @@
+// How many books a member may hold at the same time.
+package lab3.library.rules;
+
+import lab3.library.policy.rules.BorrowingFacts;
+import lab3.library.domain.MembershipType;
+
+rule "Limit: students hold at most 3 books"
+when
+    $f : BorrowingFacts(maxBooks == null, membershipType == MembershipType.STUDENT)
+then
+    modify($f) { setMaxBooks(3) }
+end
+
+rule "Limit: regular members hold at most 5 books"
+when
+    $f : BorrowingFacts(maxBooks == null, membershipType == MembershipType.REGULAR)
+then
+    modify($f) { setMaxBooks(5) }
+end
+
+rule "Limit: premium members hold at most 10 books"
+when
+    $f : BorrowingFacts(maxBooks == null, membershipType == MembershipType.PREMIUM)
+then
+    modify($f) { setMaxBooks(10) }
+end

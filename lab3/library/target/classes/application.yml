@@ -1,0 +1,31 @@
+spring:
+  main:
+    banner-mode: off
+
+logging:
+  pattern:
+    console: "%clr(%-5level) %clr(%-28logger{0}){cyan} %msg%n"
+  level:
+    root: WARN
+    lab3.library: INFO
+
+library:
+  borrowing:
+    # Which BorrowingPolicy Spring injects: fixed | role-based | rules
+    policy: fixed
+    fixed-limit: 3
+    loan-days: 14
+    role-limits:
+      student: 2
+      regular: 4
+      premium: 8
+    role-loan-days:
+      student: 14
+      regular: 21
+      premium: 30
+  events:
+    heavy-borrower-threshold: 2
+  rules:
+    # Point this to an external folder (e.g. file:./rules/*.drl) to change rules without rebuilding
+    location: classpath*:rules/*.drl
+    auto-reload: false

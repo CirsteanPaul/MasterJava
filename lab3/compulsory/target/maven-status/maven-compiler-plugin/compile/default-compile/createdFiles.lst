@@ -1,0 +1,14 @@
+lab3/di/DiDemoApplication.class
+lab3/di/ReportGenerator$MissingService.class
+lab3/di/AppConfig.class
+lab3/di/FormatterService.class
+lab3/di/InjectionLog$Step.class
+lab3/di/ReportScheduler.class
+lab3/di/AuditTrail.class
+lab3/di/DataSourceService.class
+lab3/di/InjectionLog.class
+lab3/di/InjectionLog$Entry.class
+lab3/di/Notifier.class
+lab3/di/SmsNotifier.class
+lab3/di/ReportGenerator.class
+lab3/di/EmailNotifier.class
